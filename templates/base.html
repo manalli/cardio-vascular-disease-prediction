@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardioAI | Heart Disease Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#020617',
+                        card: '#0f172a',
+                        crimson: '#e11d48'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen relative">
+    
+    <div class="fixed inset-0 z-[-1] bg-dark bg-grid opacity-80"></div>
+    
+    <nav class="fixed top-0 w-full z-50 border-b border-white/10 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex items-center space-x-2">
+                    <i data-lucide="activity" class="text-crimson w-8 h-8 animate-heartbeat"></i>
+                    <span class="text-xl font-bold tracking-tight text-white">Cardio<span class="text-crimson">AI</span></span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/" class="text-gray-300 hover:text-white transition">Home</a>
+                    <a href="/insights" class="text-gray-300 hover:text-white transition">Model Insights</a>
+                    <a href="/predict" class="bg-crimson/90 hover:bg-crimson text-white px-4 py-2 rounded-full transition shadow-lg shadow-crimson/20">
+                        Check Risk
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20 pb-10">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="border-t border-white/10 mt-auto py-8">
+        <div class="max-w-7xl mx-auto text-center text-gray-500 text-sm">
+            <p>&copy; 2024 CardioAI. AI-Powered Health Analytics.</p>
+            <p class="mt-2 text-xs">Disclaimer: Not a substitute for professional medical advice.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

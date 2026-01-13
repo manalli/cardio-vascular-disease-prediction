@@ -1,0 +1,52 @@
+/* Aceternity-inspired Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-dark: #020617;
+    --card-dark: #0f172a;
+    --accent-red: #e11d48;
+    --accent-glow: rgba(225, 29, 72, 0.5);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-dark);
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Glowing Grid Background */
+.bg-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    60% { transform: scale(1); }
+}
+.animate-heartbeat {
+    animation: heartbeat 2s infinite;
+}
+
+/* Spotlight Effect on Hover */
+.spotlight-hover:hover {
+    box-shadow: 0 0 25px var(--accent-glow);
+    border-color: rgba(225, 29, 72, 0.6);
+    transition: all 0.3s ease;
+}

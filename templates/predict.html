@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4">
+    <div class="glass-card rounded-2xl p-8 shadow-2xl">
+        <div class="mb-8 text-center">
+            <h2 class="text-2xl font-bold text-white">Enter Clinical Parameters</h2>
+            <p class="text-gray-400 text-sm">Fill in the data below to calculate risk.</p>
+        </div>
+
+        <form action="/predict" method="POST" class="space-y-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Age (Years)</label>
+                    <input type="number" name="age" required min="20" max="100" class="w-full bg-dark/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-crimson focus:border-transparent outline-none transition" placeholder="e.g. 50">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Gender</label>
+                    <select name="gender" class="w-full bg-dark/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-crimson outline-none">
+                        <option value="2">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Height (cm)</label>
+                    <input type="number" name="height" required min="100" max="250" class="w-full bg-dark/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-crimson outline-none" placeholder="e.g. 170">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Weight (kg)</label>
+                    <input type="number" name="weight" required min="30" max="200" step="0.1" class="w-full bg-dark/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-crimson outline-none" placeholder="e.g. 70.5">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Systolic BP (ap_hi)</label>
+                    <input type="number" name="ap_hi" required min="60" max="240" class="w-full bg-dark/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-crimson outline-none" placeholder="e.g. 120">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Diastolic BP (ap_lo)</label>
+                    <input type="number" name="ap_lo" required min="30" max="180" class="w-full bg-dark/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-crimson outline-none" placeholder="e.g. 80">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Cholesterol Level</label>
+                    <select name="cholesterol" class="w-full bg-dark/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-crimson outline-none">
+                        <option value="1">Normal</option>
+                        <option value="2">Above Normal</option>
+                        <option value="3">Well Above Normal</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Glucose Level</label>
+                    <select name="gluc" class="w-full bg-dark/50 border border-gray-700 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-crimson outline-none">
+                        <option value="1">Normal</option>
+                        <option value="2">Above Normal</option>
+                        <option value="3">Well Above Normal</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mt-6 p-4 bg-white/5 rounded-xl">
+                <h3 class="text-sm font-semibold text-gray-300 mb-3 uppercase tracking-wider">Lifestyle Factors</h3>
+                <div class="flex flex-wrap gap-6 justify-center">
+                    
+                    <label class="flex items-center space-x-3 cursor-pointer">
+                        <input type="hidden" name="smoke" value="0">
+                        <input type="checkbox" name="smoke" value="1" class="w-5 h-5 rounded border-gray-700 text-crimson focus:ring-crimson bg-dark">
+                        <span class="text-gray-300">Smoker</span>
+                    </label>
+
+                    <label class="flex items-center space-x-3 cursor-pointer">
+                        <input type="hidden" name="alco" value="0">
+                        <input type="checkbox" name="alco" value="1" class="w-5 h-5 rounded border-gray-700 text-crimson focus:ring-crimson bg-dark">
+                        <span class="text-gray-300">Alcohol Intake</span>
+                    </label>
+
+                    <label class="flex items-center space-x-3 cursor-pointer">
+                        <input type="hidden" name="active" value="0">
+                        <input type="checkbox" name="active" value="1" class="w-5 h-5 rounded border-gray-700 text-crimson focus:ring-crimson bg-dark" checked>
+                        <span class="text-gray-300">Physically Active</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pt-4">
+                <button type="submit" class="w-full bg-gradient-to-r from-crimson to-rose-600 hover:from-rose-600 hover:to-crimson text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-crimson/30 transform hover:scale-[1.02] transition-all duration-200">
+                    Analyze Risk Profile
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

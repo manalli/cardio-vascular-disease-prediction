@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center lg:pt-32">
+        <h1 class="mx-auto max-w-4xl font-display text-5xl font-bold tracking-tight text-white sm:text-7xl">
+            Predict Heart Health with 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-crimson to-purple-500">
+                AI Precision
+            </span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
+            Utilizing advanced machine learning models trained on over 70,000 clinical records to detect cardiovascular disease risk factors instantly.
+        </p>
+        <div class="mt-10 flex justify-center gap-x-6">
+            <a href="/predict" class="group relative inline-flex items-center justify-center rounded-full py-3 px-8 text-lg font-semibold text-white transition-all duration-200 bg-crimson hover:bg-rose-600 hover:shadow-lg hover:shadow-crimson/40 focus:outline-none focus:ring-2 focus:ring-crimson focus:ring-offset-2">
+                Start Analysis 
+                <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <a href="/insights" class="text-sm font-semibold leading-6 text-white hover:text-crimson transition pt-3">
+                View Model Accuracy <span aria-hidden="true">→</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 mt-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-2xl spotlight-hover">
+                <div class="w-12 h-12 bg-crimson/20 rounded-lg flex items-center justify-center mb-4">
+                    <i data-lucide="brain-circuit" class="text-crimson w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Machine Learning</h3>
+                <p class="text-gray-400">Powered by Random Forest and XGBoost ensembles optimized for high recall and precision.</p>
+            </div>
+            
+            <div class="glass-card p-8 rounded-2xl spotlight-hover">
+                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <i data-lucide="shield-check" class="text-blue-400 w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Data Privacy</h3>
+                <p class="text-gray-400">Analysis happens instantly on the server. No personal medical data is permanently stored.</p>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl spotlight-hover">
+                <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
+                    <i data-lucide="activity" class="text-purple-400 w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Instant Results</h3>
+                <p class="text-gray-400">Get a comprehensive risk assessment score and visualization in milliseconds.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
